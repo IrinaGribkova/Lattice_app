@@ -1,0 +1,285 @@
+﻿<Window x:Class="Lattice_app.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lattice_app"
+        mc:Ignorable="d"
+
+         Title="Lattice" Icon="icon.png" Height="678.824" Width="1315.763" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip">
+    <Window.Background>
+        <ImageBrush ImageSource ="fon3.jpg" Stretch="UniformToFill"/>
+    </Window.Background>
+    <Grid>
+        <Grid Name="Menu" Visibility="Visible">
+            <Label Content="Welcome to Lattice app!" HorizontalAlignment="Left" Margin="354,10,0,0" VerticalAlignment="Top" Height="106" Width="628" Foreground="White" FontFamily="Agency FB" FontSize="72" FontWeight="Bold"/>
+            <Button Content="" Name="Visual_app" HorizontalAlignment="Left" Margin="98,116,0,0" VerticalAlignment="Top" Width="460" Height="502" Click="Visual_app_Click" BorderThickness="5" BorderBrush="#FF0AEAE0">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <Image Source="Visual.png" Width="428" Stretch="Fill" Height="472" />
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+            <Button Content="" Name="Digital" HorizontalAlignment="Left" Margin="764,116,0,0"  VerticalAlignment="Top" Width="454" Height="502" BorderThickness="5" BorderBrush="#FF0AEAE0" Click="Digital_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <Image Source="Calculate.png" Width="428" Stretch="Fill" Height="472" />
+                    </DataTemplate>
+                </Button.ContentTemplate>
+            </Button>
+            <Button Content="X" Name="Close_app" HorizontalAlignment="Left" Margin="1160,31,0,0" VerticalAlignment="Top" Width="58"  BorderThickness="5" Height="51" FontSize="36" FontFamily="Agency FB" BorderBrush="#FF0AEAE0" Foreground="White" FontWeight="Bold" Background="Black" Click="Exit_form_app_Click" RenderTransformOrigin="0.526,0.409"/>
+        </Grid>
+
+        <Grid Name="Graph" Visibility="Hidden">
+            <Grid.Background>
+                <ImageBrush/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="571*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1121*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Rectangle HorizontalAlignment="Left" Height="592" Margin="936,26,0,0"  Stroke="#FF0AEAE0" VerticalAlignment="Top" Width="324" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+                <Rectangle.Fill>
+                    <ImageBrush/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Button Content="Back" Name="Exit" BorderThickness="5" HorizontalAlignment="Left" Margin="960,550,0,0" VerticalAlignment="Top" Width="86" Height="53" FontSize="36" FontFamily="Agency FB" Click="Exit_Click" Grid.Column="0" BorderBrush="#FF0AEAE0" Foreground="White" FontWeight="Bold">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Canvas Name="g" ClipToBounds="True" Grid.Row="0" HorizontalAlignment="Left" Height="540" Margin="10,68,0,0" VerticalAlignment="Top" Width="900" Background="White" Grid.Column="0"/>
+            <Button Content="Exit" Name="Exit_form_app" BorderThickness="5" HorizontalAlignment="Left" Margin="1155,550,0,0" VerticalAlignment="Top" Width="87" Height="53" FontSize="36" FontFamily="Agency FB" Grid.Column="0" BorderBrush="#FF0AEAE0" Foreground="White" FontWeight="Bold" Click="Exit_form_app_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button Content="Clear" x:Name="Clear_coordinate_plane" BorderThickness="5" HorizontalAlignment="Left" Margin="1051,550,0,0" VerticalAlignment="Top" Width="99" Height="53" FontSize="36" FontFamily="Agency FB" Grid.Column="0" BorderBrush="#FF0AEAE0" Foreground="White" FontWeight="Bold" Click="Clear_coordinate_plane_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <CheckBox Name="Draw_Lattice" Content="Lattice" HorizontalAlignment="Left"  Checked="Draw_Lattices_Checked" Unchecked=" Draw_Lattices_Unchecked" Margin="10,19,0,0" VerticalAlignment="Top" Height="44" Width="113" Foreground="White" FontSize="36" FontFamily="Agency FB" FontWeight="Bold"/>
+            <CheckBox Name="Draw_Coordinate_grid"   Content="Coordinate grid" Checked="Draw_Coordinate_grid_Checked" Unchecked="Draw_Coordinate_grid_Unchecked" HorizontalAlignment="Left" Margin="140,19,0,0" VerticalAlignment="Top" Height="44" Width="238" Foreground="White" FontSize="36" FontFamily="Agency FB" FontWeight="Bold"/>
+            <CheckBox x:Name="Draw_Points"  Content="Points" Checked="Draw_Points_Checked" Unchecked="Draw_Points_Unchecked" HorizontalAlignment="Left" Margin="378,19,0,0" VerticalAlignment="Top" Height="44" Width="110" Foreground="White" FontSize="36" FontFamily="Agency FB" FontWeight="Bold"/>
+            <CheckBox x:Name="Draw_CoordinatePlane"  Content="Coordinate Plane" Checked="Draw_CoordinatePlane_Checked" Unchecked="Draw_CoordinatePlane_Unchecked" HorizontalAlignment="Left" Margin="493,19,0,0" VerticalAlignment="Top" Height="44" Width="239" Foreground="White" FontSize="36" FontFamily="Agency FB" FontWeight="Bold"/>
+
+        </Grid>
+
+        <Grid Name="Input_vectors" Visibility="Hidden">
+            <Label Content="Input vectors:" HorizontalAlignment="Left" Margin="954,19,0,0" VerticalAlignment="Top" Height="53" Width="300" FontSize="36" FontFamily="Agency FB" FontWeight="Bold" Foreground="White"/>
+            <ComboBox Name="x1" HorizontalAlignment="Left" Margin="1006,77,0,0" VerticalAlignment="Top" Width="86" Height="48" FontSize="36" FontFamily="Agency FB" FontWeight="Bold"/>
+            <ComboBox Name="y1" HorizontalAlignment="Left" Margin="1153,77,0,0" VerticalAlignment="Top" Width="86" Height="48" FontSize="36" FontFamily="Agency FB" FontWeight="Bold"/>
+            <ComboBox Name="x2" HorizontalAlignment="Left" Margin="1006,130,0,0" VerticalAlignment="Top"  Width="86" Height="47" FontFamily="Agency FB" FontSize="36" FontWeight="Bold"/>
+            <ComboBox Name="y2" HorizontalAlignment="Left" Margin="1153,130,0,0" VerticalAlignment="Top" Width="86" Height="47" FontSize="36" FontFamily="Agency FB" FontWeight="Bold"/>
+            <Label Content="X1:" HorizontalAlignment="Left" Margin="954,77,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Agency FB" Height="48" Width="42" FontWeight="Bold" Foreground="White" RenderTransformOrigin="-4.024,0.542"/>
+            <Label Content="X2:" HorizontalAlignment="Left" Margin="954,130,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Agency FB" Height="47" Width="47" FontWeight="Bold" Foreground="White"/>
+            <Label Content="Y1:" HorizontalAlignment="Left" Margin="1102,77,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Agency FB" Height="48" Width="43" FontWeight="Bold" Foreground="White"/>
+            <Label Content="Y2:" HorizontalAlignment="Left" Margin="1102,130,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Agency FB" Height="47" Width="53" FontWeight="Bold" Foreground="White"/>
+            <Button Content="Add" BorderThickness="5" Name="Draw" HorizontalAlignment="Left" Margin="955,194,0,0" VerticalAlignment="Top" Width="190" Height="54" FontSize="36" FontFamily="Agency FB" BorderBrush="#FF0AEAE0" Foreground="White" Click="Draw_Click" FontWeight="Bold">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button Content="⮌" BorderThickness="5" Name="Back" HorizontalAlignment="Left" Margin="1153,194,0,0" VerticalAlignment="Top" Width="86" Height="54" FontFamily="Agency FB" BorderBrush="#FF0AEAE0" Foreground="White" FontSize="36" Click="Back_Click" FontWeight="Bold" >
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button Content="Execute LLL-algorithm" Visibility="Hidden" Name="LLL_Calculate" HorizontalAlignment="Left" Margin="955,253,0,0" VerticalAlignment="Top" Width="284" Height="53" Background="Black" Foreground="White" FontFamily="Agency FB" FontSize="36"  BorderThickness="5" BorderBrush="#FF0AEAE0" FontWeight="Bold" Click="LLL_Calculate_Click"/>
+            <Button Content="Next step" Visibility="Hidden" x:Name="Next_step" HorizontalAlignment="Left" Margin="955,253,0,0" VerticalAlignment="Top" Width="284" Height="53" Background="Black" Foreground="White" FontFamily="Agency FB" FontSize="36"  BorderThickness="5" BorderBrush="#FF0AEAE0" FontWeight="Bold" Click="Next_step_Click"/>
+            <Button Content="Load" Visibility="Hidden" x:Name="Load_points_for_LLL" HorizontalAlignment="Left" Margin="954,311,0,0" VerticalAlignment="Top" Width="285" Height="53" Background="Black" Foreground="White" FontFamily="Agency FB" FontSize="36"  BorderThickness="5" BorderBrush="#FF0AEAE0" FontWeight="Bold" Click="Load_points_for_LLL_Click"/>
+            <Button Content="Open Results" Visibility="Hidden" x:Name="Text_results" HorizontalAlignment="Left" Margin="954,369,0,0" VerticalAlignment="Top" Width="285" Height="54" Background="Black" Foreground="White" FontFamily="Agency FB" FontSize="36"  BorderThickness="5" BorderBrush="#FF0AEAE0" FontWeight="Bold" Click="Text_results_Click" />
+            <Grid Name="Babai_point" Visibility="Hidden">
+                <ComboBox Name="Point_x_Babai" HorizontalAlignment="Left" Margin="1003,306,0,0" VerticalAlignment="Top"  Width="86" Height="47" FontFamily="Agency FB" FontSize="36" FontWeight="Bold"/>
+                <ComboBox Name="Point_y_Babai" HorizontalAlignment="Left" Margin="1156,306,0,0" VerticalAlignment="Top"  Width="86" Height="47" FontFamily="Agency FB" FontSize="36" FontWeight="Bold"/>
+                <Label Content="X:" HorizontalAlignment="Left" Margin="961,305,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Agency FB" Height="48" Width="42" FontWeight="Bold" Foreground="White" RenderTransformOrigin="-2.571,0.312"/>
+                <Label Content="Y:" HorizontalAlignment="Left" Margin="1114,305,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Agency FB" Height="48" Width="42" FontWeight="Bold" Foreground="White" RenderTransformOrigin="-4.762,0.406"/>
+                <Label Content="Point:" HorizontalAlignment="Left" Margin="956,246,0,0" VerticalAlignment="Top" Height="54" Width="300" FontSize="36" FontFamily="Agency FB" FontWeight="Bold" Foreground="White"/>
+                <Button Content="Add" BorderThickness="5" Name="Add_point" HorizontalAlignment="Left" Margin="956,368,0,0" VerticalAlignment="Top" Width="185" Height="54" FontSize="36" FontFamily="Agency FB" BorderBrush="#FF0AEAE0" Foreground="White" FontWeight="Bold" Click="Add_point_Click">
+                    <Button.Background>
+                        <ImageBrush/>
+                    </Button.Background>
+                </Button>
+                <Button Content="⮌" BorderThickness="5" Name="Delete_point" HorizontalAlignment="Left" Margin="1156,368,0,0" VerticalAlignment="Top" Width="86" Height="54" FontFamily="Agency FB" BorderBrush="#FF0AEAE0" Foreground="White" FontSize="36" FontWeight="Bold" Click="Delete_point_Click" >
+                    <Button.Background>
+                        <ImageBrush/>
+                    </Button.Background>
+                </Button>
+                <Button Content="Execute Babai's algorithm" Name="Babai_Calculate" HorizontalAlignment="Left" Margin="956,429,0,0" VerticalAlignment="Top" Width="286" Height="53" Background="Black" Foreground="White" FontFamily="Agency FB" FontSize="24"  BorderThickness="5" BorderBrush="#FF0AEAE0" FontWeight="Bold" Click="Babai_Calculate_Click"/>
+                <Button Content="Load" x:Name="Load_points_for_Babai" HorizontalAlignment="Left" Margin="956,487,0,0" VerticalAlignment="Top" Width="133" Height="53" Background="Black" Foreground="White" FontFamily="Agency FB" FontSize="24"  BorderThickness="5" BorderBrush="#FF0AEAE0" FontWeight="Bold" Click="Load_points_for_Babai_Click"/>
+                <Button Content="Next step" x:Name="Next_step_Babai" Visibility="Hidden" HorizontalAlignment="Left" Margin="956,429,0,0" VerticalAlignment="Top" Width="286" Height="53" Background="Black" Foreground="White" FontFamily="Agency FB" FontSize="24"  BorderThickness="5" BorderBrush="#FF0AEAE0" FontWeight="Bold" Click="Next_step_Babai_Click"/>
+                <Button Content="Open results" x:Name="Open_result" HorizontalAlignment="Left" Margin="1094,487,0,0" VerticalAlignment="Top" Width="148" Height="53" Background="Black" Foreground="White" FontFamily="Agency FB" FontSize="24"  BorderThickness="5" BorderBrush="#FF0AEAE0" FontWeight="Bold" Click="Text_results_Click"/>
+            </Grid>
+        </Grid>
+
+        <Grid Name="Choose_algorithm" Visibility="Hidden">
+            <Label Content="List of algorithms:" HorizontalAlignment="Left" Margin="402,10,0,0" VerticalAlignment="Top" Height="105" Width="478" FontFamily="Agency FB" FontSize="72" FontWeight="Bold" Foreground="White"/>
+            <Button Content="LLL-algorithm" Name="LLL" HorizontalAlignment="Left" BorderThickness="5" Margin="142,115,0,0" VerticalAlignment="Top" Width="992" Height="82" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="48" FontWeight="Bold" Click="LLL_Click"/>
+            <Button Content="Back" Name="Back_menu" HorizontalAlignment="Left" BorderThickness="5" Margin="143,524,0,0" VerticalAlignment="Top" Width="991" Height="82" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="48" FontWeight="Bold" Click="Back_menu_Click"/>
+            <Button Content="Babai's algorithm" Name="Babai_alg" HorizontalAlignment="Left" BorderThickness="5" Margin="143,218,0,0" VerticalAlignment="Top" Width="991" Height="82" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="48" FontWeight="Bold" Click="Babai_alg_Click"/>
+        </Grid>
+
+        <Grid Name="Choose_algorithm_for_calculating" Visibility="Hidden">
+            <Label Content="List of algorithms:" HorizontalAlignment="Left" Margin="429,10,0,0" VerticalAlignment="Top" Height="105" Width="478" FontFamily="Agency FB" FontSize="72" FontWeight="Bold" Foreground="White"/>
+            <Button Content="LLL-algorithm" Name="Grid_LLL_calculating" HorizontalAlignment="Left" BorderThickness="5" Margin="156,120,0,0" VerticalAlignment="Top" Width="991" Height="82" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="48" FontWeight="Bold" Click="Grid_LLL_calculating_Click" />
+            <Button Content="Back" Name="Grid_Back_menu" HorizontalAlignment="Left" BorderThickness="5" Margin="156,526,0,0" VerticalAlignment="Top" Width="991" Height="82" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="48" FontWeight="Bold" Click="Grid_Back_menu_Click"/>
+            <Button Content="Babai's algorithm" Name="Babai_algorithm" HorizontalAlignment="Left" BorderThickness="5" Margin="156,237,0,0" VerticalAlignment="Top" Width="991" Height="82" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="48" FontWeight="Bold" Click="Babai_algorithm_Click" />
+            <Button Content="Hastad's attack" x:Name="Hastad_algorithm" Visibility="Hidden" HorizontalAlignment="Left" BorderThickness="5" Margin="261,363,0,0" VerticalAlignment="Top" Width="991" Height="82" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="48" FontWeight="Bold" Click="Hastad_algorithm_Click" />
+        </Grid>
+
+        <Grid Name="Calculating_LLL" Visibility="Hidden">
+            <Grid Name="dim2" HorizontalAlignment="Left" Height="246" Margin="41,132,0,0" VerticalAlignment="Top" Width="596" Visibility="Hidden">
+                <Rectangle HorizontalAlignment="Left" Height="241" Margin="28,0,0,0"  Stroke="#FF0AEAE0" VerticalAlignment="Top" Width="544" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.Fill>
+                        <ImageBrush/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBox HorizontalAlignment="Left" Name="v1_x" Height="75" Margin="80,28,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v1_y" Height="75" Margin="346,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" FontSize="48" FontFamily="Agency FB" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v2_x" Height="75" Margin="80,138,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v2_y" Height="75" Margin="346,138,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+            </Grid>
+            <Grid Name="dim3" HorizontalAlignment="Left" Height="356" Margin="10,132,0,0" VerticalAlignment="Top" Width="621" Visibility="Visible">
+                <Rectangle HorizontalAlignment="Left" Height="343" Margin="28,0,0,0"  Stroke="#FF0AEAE0" VerticalAlignment="Top" Width="577" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.Fill>
+                        <ImageBrush/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBox HorizontalAlignment="Left" Name="v1_x3" Height="52" Margin="80,28,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v1_y3" Height="52" Margin="259,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="121" FontSize="48" FontFamily="Agency FB" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v2_x3" Height="52" Margin="80,138,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v2_y3" Height="52" Margin="259,138,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" x:Name="v3_x3" Height="52" Margin="80,250,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" x:Name="v3_y3" Height="52" Margin="259,250,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v1_z3" Height="52" Margin="435,28,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" x:Name="v2_z3" Height="52" Margin="435,138,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" x:Name="v3_z3" Height="52" Margin="435,250,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+            </Grid>
+            <ComboBox Name="Dimension" HorizontalAlignment="Left" Margin="367,60,0,0" VerticalAlignment="Top" Width="200" Height="39" FontSize="24" FontFamily="Agency FB" FontWeight="Bold"/>
+            <Label Content="Choose dimension:" HorizontalAlignment="Left" Margin="41,48,0,0" VerticalAlignment="Top" Height="70" Width="321" Foreground="White" FontSize="48" FontFamily="Agency FB" FontWeight="Bold"/>
+            <TextBox Name="Result" HorizontalAlignment="Left" Height="356" Margin="642,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="602" FontFamily="Agency FB" FontSize="22" Cursor="ScrollNE" FontWeight="Bold"/>
+            <Label Content="LLL-algorithm's result:" HorizontalAlignment="Left" Margin="642,44,0,0" VerticalAlignment="Top" Height="70" Width="446" FontFamily="Agency FB" FontWeight="Bold" FontSize="48" Foreground="White"/>
+            <Button Content="Calculate" Name="Calculate_LLL" HorizontalAlignment="Left" BorderThickness="5" Margin="53,520,0,0" VerticalAlignment="Top" Width="514" Height="82" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="48" FontWeight="Bold" Click="Calculate_LLL_Click"/>
+            <Button Content="Back" Name="Back_Choose_alg" HorizontalAlignment="Left" BorderThickness="5" Margin="1072,520,0,0" VerticalAlignment="Top" Width="172" Height="82" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="48" FontWeight="Bold" Click="Back_Choose_alg_Click"/>
+            <Button Content="Load" x:Name="Load_for_LLL" HorizontalAlignment="Left" BorderThickness="5" Margin="642,520,0,0" VerticalAlignment="Top"  Width="172" Height="82" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="48" FontWeight="Bold" Click="Load_for_LLL_Click"/>
+            <Button Content="Clear" Name="Clear_result" HorizontalAlignment="Left" BorderThickness="5" Margin="852,520,0,0" VerticalAlignment="Top"  Width="172" Height="82" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="48" FontWeight="Bold" Click="Clear_result_Click"/>
+            <Button Content="X" x:Name="Close_app_Copy" HorizontalAlignment="Left" Margin="1186,44,0,0" VerticalAlignment="Top" Width="58"  BorderThickness="5" Height="55" FontSize="36" FontFamily="Agency FB" BorderBrush="#FF0AEAE0" Foreground="White" FontWeight="Bold" Background="Black" Click="Exit_form_app_Click"/>
+        </Grid>
+
+        <Grid Name="Ellipse_grid" Visibility="Hidden">
+            <Label Content="Input ellipse: " HorizontalAlignment="Left" Margin="1188,274,0,0" VerticalAlignment="Top" Height="49" Width="178" FontSize="36" FontFamily="Agency FB" FontWeight="Bold" Foreground="White"/>
+            <ComboBox x:Name="Center_x1" HorizontalAlignment="Left" Margin="1244,328,0,0" VerticalAlignment="Top" Width="101" Height="48" FontSize="36" FontFamily="Agency FB" FontWeight="Bold"/>
+            <ComboBox x:Name="Center_y1" HorizontalAlignment="Left" Margin="1412,328,0,0" VerticalAlignment="Top" Width="101" Height="48" FontSize="36" FontFamily="Agency FB" FontWeight="Bold"/>
+            <ComboBox x:Name="Width_e" HorizontalAlignment="Left" Margin="1282,391,0,0" VerticalAlignment="Top" Width="231" Height="53" FontFamily="Agency FB" FontSize="36" FontWeight="Bold"/>
+            <ComboBox x:Name="Height_e" HorizontalAlignment="Left" Margin="1282,458,0,0" VerticalAlignment="Top" Width="231" Height="53" FontSize="36" FontFamily="Agency FB" FontWeight="Bold"/>
+            <Label Content="X1:" HorizontalAlignment="Left" Margin="1188,328,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Agency FB" Height="48" Width="42" FontWeight="Bold" Foreground="White"/>
+            <Label Content="Width:" HorizontalAlignment="Left" Margin="1186,391,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Agency FB" Height="53" Width="96" FontWeight="Bold" Foreground="White"/>
+            <Label Content="Y1:" HorizontalAlignment="Left" Margin="1369,328,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Agency FB" Height="48" Width="43" FontWeight="Bold" Foreground="White"/>
+            <Label Content="Height:" HorizontalAlignment="Left" Margin="1186,458,0,0" VerticalAlignment="Top" FontSize="36" FontFamily="Agency FB" Height="50" Width="96" FontWeight="Bold" Foreground="White"/>
+            <Button Content="Add" BorderThickness="5" x:Name="Draw_Ellipse" HorizontalAlignment="Left" Margin="1186,523,0,0" VerticalAlignment="Top" Width="204" Height="54" FontSize="36" FontFamily="Agency FB" BorderBrush="#FF0AEAE0" Foreground="White" Click="Draw_Ellipse_Click" FontWeight="Bold">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+            <Button Content="⮌" BorderThickness="5" x:Name="Delete_Ellipse" HorizontalAlignment="Left" Margin="1396,523,0,0" VerticalAlignment="Top" Width="117" Height="54" FontFamily="Agency FB" BorderBrush="#FF0AEAE0" Foreground="White" FontSize="36" Click="Delete_Ellipse_Click" FontWeight="Bold" >
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+        </Grid>
+
+        <Grid Name="Calculating_Babai" Visibility="Hidden">
+            <TextBox Name="Result_Babai" HorizontalAlignment="Left" Height="412" Margin="648,114,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="616" FontSize="22" FontFamily="Agency FB" FontWeight="Bold"/>
+            <ComboBox Name="Dimension_Babai" HorizontalAlignment="Left" Margin="347,40,0,0" VerticalAlignment="Top" Width="258" Height="51" FontSize="36" FontWeight="Bold" FontFamily="Agency FB"/>
+            <Label Content="Choose dimension:" HorizontalAlignment="Left" Margin="29,26,0,0" VerticalAlignment="Top" Height="66" Width="313" FontFamily="Agency FB" FontWeight="Bold" FontSize="48" Foreground="White"/>
+            <Button Content="Back" Name="Exit_Babai" HorizontalAlignment="Left" Margin="1105,555,0,0" VerticalAlignment="Top" Width="159" Height="65" Foreground="White" BorderThickness="5" Background="Black" BorderBrush="#FF0AEAE0" FontFamily="Agency FB" FontSize="36" FontWeight="Bold" Click="Back_Choose_alg_Click" />
+            <Grid Name="dim3_Babai" HorizontalAlignment="Left" Height="345" Margin="10,132,0,0" VerticalAlignment="Top" Width="525" Visibility="Visible">
+                <Rectangle HorizontalAlignment="Left" Height="217" Margin="28,0,0,0"  Stroke="#FF0AEAE0" VerticalAlignment="Top" Width="479" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.Fill>
+                        <ImageBrush/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBox HorizontalAlignment="Left" Name="v1_x_Babai" Height="34" Margin="80,28,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="97" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="24" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v1_y_Babai" Height="34" Margin="223,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="107" FontSize="48" FontFamily="Agency FB" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v2_x_Babai" Height="34" Margin="80,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="97" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="24" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v2_y_Babai" Height="34" Margin="223,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="24" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" x:Name="v3_x_Babai" Height="34" Margin="80,148,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="97" RenderTransformOrigin="0.645,-2" FontFamily="Agency FB" FontSize="24" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" x:Name="v3_y_Babai" Height="34" Margin="223,148,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="24" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v1_z_Babai" Height="34" Margin="369,28,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="24" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" x:Name="v2_z_Babai" Height="34" Margin="369,90,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="24" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" x:Name="v3_z_Babai" Height="34" Margin="369,148,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="24" FontWeight="Bold"/>
+                <Rectangle HorizontalAlignment="Left" Height="77" Margin="24,245,0,0"  Stroke="#FF0AEAE0" VerticalAlignment="Top" Width="490" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.Fill>
+                        <ImageBrush/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBox HorizontalAlignment="Left" x:Name="point_x_Babai" Height="36" Margin="80,262,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="97" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" x:Name="point_y_Babai" Height="36" Margin="223,262,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="107" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" x:Name="point_z_Babai" Height="36" Margin="369,262,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+            </Grid>
+            <Grid Name="dim2_Babai" HorizontalAlignment="Left" Height="422" Margin="0,132,0,0" VerticalAlignment="Top" Width="605" Visibility="Hidden">
+                <Rectangle HorizontalAlignment="Left" Height="241" Margin="28,0,0,0"  Stroke="#FF0AEAE0" VerticalAlignment="Top" Width="544" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.Fill>
+                        <ImageBrush/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBox HorizontalAlignment="Left" Name="v1_x_Babai_2" Height="75" Margin="80,28,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v1_y_Babai_2" Height="75" Margin="346,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" FontSize="48" FontFamily="Agency FB" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v2_x_Babai_2" Height="75" Margin="80,138,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" Name="v2_y_Babai_2" Height="75" Margin="346,138,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <Rectangle HorizontalAlignment="Left" Height="118" Margin="28,294,0,0"  Stroke="#FF0AEAE0" VerticalAlignment="Top" Width="544" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.Fill>
+                        <ImageBrush/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBox HorizontalAlignment="Left" x:Name="point_x_Babai_2" Height="76" Margin="80,310,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+                <TextBox HorizontalAlignment="Left" x:Name="point_y_Babai_2" Height="75" Margin="346,311,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.644,0.491" FontFamily="Agency FB" FontSize="48" FontWeight="Bold"/>
+            </Grid>
+            <Button Content="Calculate" Name="Calculate_Babai" HorizontalAlignment="Left" Margin="29,554,0,0" VerticalAlignment="Top" Width="576" Height="65" Foreground="White"  FontSize="36" FontWeight="Bold" BorderThickness="5" Background="Black" BorderBrush="#FF0AEAE0"  FontFamily="Agency FB" Click="Calculate_Babai_Click"/>
+            <Label Content="Babai's algorithm's result:" HorizontalAlignment="Left" Margin="648,27,0,0" VerticalAlignment="Top" Height="65" Width="580" Foreground="White" FontFamily="Agency FB" FontWeight="Bold" FontSize="48"/>
+            <Button Content="Load"  Name="Load_for_Babai" HorizontalAlignment="Left" BorderThickness="5" Margin="648,555,0,0" VerticalAlignment="Top" Width="158"  Height="65" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="36" FontWeight="Bold" Click="Load_for_Babai_Click"/>
+            <Button Content="Clear" Name="Clear_result_Babai" HorizontalAlignment="Left" BorderThickness="5" Margin="875,555,0,0" VerticalAlignment="Top" Width="160"  Height="65" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="36" FontWeight="Bold" Click="Clear_result_Click"/>
+            <Button Content="X" x:Name="Close_app_Babai" HorizontalAlignment="Left" Margin="1206,26,0,0" VerticalAlignment="Top" Width="58"  BorderThickness="5"  Height="65" FontSize="36" FontFamily="Agency FB" BorderBrush="#FF0AEAE0" Foreground="White" FontWeight="Bold" Background="Black" Click="Exit_form_app_Click" RenderTransformOrigin="0.629,0.527"/>
+        </Grid>
+
+        <Grid Name="Calculating_Hastad" Visibility="Hidden">
+            <Label Content="Input number:" HorizontalAlignment="Left" Margin="52,26,0,0" VerticalAlignment="Top" Height="57" Width="212" Foreground="White" FontFamily="Agency FB" FontSize="36" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Name="Hastad_message" Height="50" Margin="52,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="384" FontFamily="Agency FB" FontWeight="Bold" FontSize="36" UndoLimit="1000"/>
+            <Label Content="Result Hastad's attack:" HorizontalAlignment="Left" Margin="526,27,0,0" VerticalAlignment="Top" Height="54" Width="305" Foreground="White" FontFamily="Agency FB" FontSize="36" FontWeight="Bold"/>
+            <TextBox Name="Hastad_result" HorizontalAlignment="Left" Height="494" Margin="526,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="920" FontFamily="Agency FB" FontWeight="Bold" FontSize="36"/>
+            <Button Content="Load"  Name="Load_for_Hastad" HorizontalAlignment="Left" BorderThickness="5" Margin="526,613,0,0" VerticalAlignment="Top" Width="258" Height="68" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="36" FontWeight="Bold"/>
+            <Button Content="Clear" Name="Clear_result_Hastad" HorizontalAlignment="Left" BorderThickness="5" Margin="899,612,0,0" VerticalAlignment="Top" Width="204" Height="69" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="36" FontWeight="Bold" Click="Clear_result_Hastad_Click"/>
+            <Button Content="X" x:Name="Close_app_Hastad" HorizontalAlignment="Left" Margin="1464,28,0,0" VerticalAlignment="Top" Width="56"  BorderThickness="5" Height="53" FontSize="36" FontFamily="Agency FB" BorderBrush="#FF0AEAE0" Foreground="White" FontWeight="Bold" Background="Black" Click="Exit_form_app_Click" RenderTransformOrigin="0.629,0.527"/>
+            <Button Content="Back" Name="Exit_Hastad" HorizontalAlignment="Left" Margin="1223,613,0,0" VerticalAlignment="Top" Width="223" Height="68" Foreground="White" BorderThickness="5" Background="Black" BorderBrush="#FF0AEAE0" FontFamily="Agency FB" FontSize="36" FontWeight="Bold" Click="Exit_Hastad_Click"/>
+            <Button Content="Execute Hastad's attack"  Name="Execute_Hastad" HorizontalAlignment="Left" BorderThickness="5" Margin="66,612,0,0" VerticalAlignment="Top" Width="388" Height="68" Background="Black" BorderBrush="#FF0AEAE0" Foreground="White" FontFamily="Agency FB" FontSize="36" FontWeight="Bold" Click="Execute_Hastad_Click"/>
+            <Label Content="Input e:" HorizontalAlignment="Left" Margin="52,174,0,0" VerticalAlignment="Top" Height="58" Width="212" Foreground="White" FontFamily="Agency FB" FontSize="36" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Name="e1" Height="50" Margin="52,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="384" FontFamily="Agency FB" FontWeight="Bold" FontSize="36" UndoLimit="1000"/>
+
+        </Grid>
+    </Grid>
+</Window>

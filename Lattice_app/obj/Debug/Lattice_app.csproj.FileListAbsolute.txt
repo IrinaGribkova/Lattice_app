@@ -1,0 +1,30 @@
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\bin\Debug\Lattice_app.exe.config
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\bin\Debug\Lattice_app.exe
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\bin\Debug\Lattice_app.pdb
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\obj\Debug\Lattice_app.csprojAssemblyReference.cache
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\obj\Debug\MainWindow.g.cs
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\obj\Debug\App.g.cs
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\obj\Debug\Lattice_app_MarkupCompile.cache
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\obj\Debug\Lattice_app_MarkupCompile.lref
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\obj\Debug\MainWindow.baml
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\obj\Debug\Lattice_app.g.resources
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\obj\Debug\Lattice_app.Properties.Resources.resources
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\obj\Debug\Lattice_app.csproj.GenerateResource.cache
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\obj\Debug\Lattice_app.csproj.CoreCompileInputs.cache
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\obj\Debug\Lattice_app.exe
+C:\Users\Ирина Грибкова\source\repos\Lattice_app\Lattice_app\obj\Debug\Lattice_app.pdb
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\bin\Debug\Lattice_app.exe.config
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\bin\Debug\Lattice_app.exe
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\bin\Debug\Lattice_app.pdb
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\obj\Debug\Lattice_app.csprojAssemblyReference.cache
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\obj\Debug\MainWindow.g.cs
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\obj\Debug\App.g.cs
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\obj\Debug\Lattice_app_MarkupCompile.cache
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\obj\Debug\Lattice_app_MarkupCompile.lref
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\obj\Debug\MainWindow.baml
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\obj\Debug\Lattice_app.g.resources
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\obj\Debug\Lattice_app.Properties.Resources.resources
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\obj\Debug\Lattice_app.csproj.GenerateResource.cache
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\obj\Debug\Lattice_app.csproj.CoreCompileInputs.cache
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\obj\Debug\Lattice_app.exe
+C:\Users\igribkova\Desktop\Lattice_app\Lattice_app\obj\Debug\Lattice_app.pdb
